@@ -16,7 +16,7 @@ If you want to **hack on the SDK itself**, see [Contributing / Local Dev](/guide
 | Node.js | 20 | `node -v` |
 | PostgreSQL | 15 | `psql --version` |
 | Redis | 7 | `redis-cli --version` |
-| A NestJS 10 project | — | `npx @nestjs/cli --version` |
+| A NestJS 12 project | — | `npx @nestjs/cli --version` |
 
 ::: tip Spin up Postgres + Redis with Docker
 If you don't have them installed locally:

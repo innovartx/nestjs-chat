@@ -7,7 +7,7 @@ description: How to clone the nestjs-chat repo, run the example app locally, and
 
 This page is for people who want to **hack on the SDK itself** — fix a bug, add a feature, improve the docs. If you just want to integrate `nestjs-chat` into your NestJS app, you're on the wrong page; [Getting Started](/guide/getting-started) is the one you want.
 
-The authoritative source for contribution rules is [`CONTRIBUTING.md`](https://github.com/canisiusa/nestjs-chat/blob/main/CONTRIBUTING.md) in the repo. This page mirrors it and adds a bit of narrative about the layout.
+The authoritative source for contribution rules is [`CONTRIBUTING.md`](https://github.com/innovartx/nestjs-chat/blob/main/CONTRIBUTING.md) in the repo. This page mirrors it and adds a bit of narrative about the layout.
 
 ## Repo layout
 
@@ -38,7 +38,7 @@ nestjs-chat/
 ## Bootstrap
 
 ```bash
-git clone https://github.com/canisiusa/nestjs-chat.git
+git clone https://github.com/innovartx/nestjs-chat.git
 cd nestjs-chat
 pnpm install
 
@@ -92,7 +92,7 @@ curl -X POST http://localhost:3001/chat/auth/login \
 
 1. Branch off `main` using `<type>/<slug>` — types are the standard Conventional Commits list (`feat`, `fix`, `chore`, `docs`, `test`, `ci`, `refactor`, `perf`, `style`, `build`, `revert`). Example: `feat/add-reactions`, `fix/exception-filter`, `docs/clarify-tenant-id`. The `PR lint` CI job enforces this on every PR.
 2. Make the change — keep PRs focused. Squash-merge is the default, so individual commits inside the branch don't need to be pristine, but PR titles must follow Conventional Commits.
-3. Add or update tests. Unit tests live next to the code (`foo.ts` → `foo.spec.ts`); end-to-end tests live under [`packages/sdk/test/e2e/`](https://github.com/canisiusa/nestjs-chat/tree/main/packages/sdk/test/e2e).
+3. Add or update tests. Unit tests live next to the code (`foo.ts` → `foo.spec.ts`); end-to-end tests live under [`packages/sdk/test/e2e/`](https://github.com/innovartx/nestjs-chat/tree/main/packages/sdk/test/e2e).
 4. If you change public API, update [Configuration](/guide/configuration), [Backend Integration](/integration/backend), or [Getting Started](/guide/getting-started) as appropriate.
 5. Run the local checks before opening the PR:
 
@@ -127,7 +127,7 @@ pnpm --filter nestjs-chat test:e2e:hardening    # 34 assertions, security + edge
 pnpm --filter nestjs-chat test:e2e:concurrency  # 10 assertions, races + transactions
 ```
 
-The same suite runs in CI on every PR against a disposable Postgres + Redis + example-app setup — see [`.github/workflows/ci.yml`](https://github.com/canisiusa/nestjs-chat/blob/main/.github/workflows/ci.yml).
+The same suite runs in CI on every PR against a disposable Postgres + Redis + example-app setup — see [`.github/workflows/ci.yml`](https://github.com/innovartx/nestjs-chat/blob/main/.github/workflows/ci.yml).
 
 ## Release flow
 
@@ -141,4 +141,4 @@ The npm token is stored as the `NPM_TOKEN` repo secret (granular, Bypass 2FA ena
 
 ## Reporting security issues
 
-**Do not open a public issue.** See [SECURITY.md](https://github.com/canisiusa/nestjs-chat/blob/main/SECURITY.md) for the private disclosure channel.
+**Do not open a public issue.** See [SECURITY.md](https://github.com/innovartx/nestjs-chat/blob/main/SECURITY.md) for the private disclosure channel.

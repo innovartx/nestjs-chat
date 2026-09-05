@@ -3,14 +3,14 @@
 This guide explains how to consume the `nestjs-chat` backend from a React frontend. The React provider uses a **provider pattern** that abstracts the underlying chat transport, so you can swap providers without changing UI code.
 
 ::: warning The React client is not yet published on npm
-`@chat-service/client` currently lives in the [nestjs-chat repo](https://github.com/canisiusa/nestjs-chat/tree/main/packages/client) but hasn't been published to npm yet. Until it is, vendor the folder into your frontend project, or open an issue on GitHub if you'd like the package published sooner.
+`@chat-service/client` currently lives in the [nestjs-chat repo](https://github.com/innovartx/nestjs-chat/tree/main/packages/client) but hasn't been published to npm yet. Until it is, vendor the folder into your frontend project, or open an issue on GitHub if you'd like the package published sooner.
 
 If you're writing your own frontend (not React, or just a minimal HTTP + Socket.IO wrapper), the REST + WebSocket shapes below are the contract — you don't need any npm package to talk to `nestjs-chat`.
 :::
 
 ## Installation (vendored)
 
-Copy [`packages/client/`](https://github.com/canisiusa/nestjs-chat/tree/main/packages/client) into your frontend project, then install its peer deps:
+Copy [`packages/client/`](https://github.com/innovartx/nestjs-chat/tree/main/packages/client) into your frontend project, then install its peer deps:
 
 ```bash
 pnpm add axios socket.io-client
@@ -219,4 +219,4 @@ Always store and call the unsubscribe functions on component unmount to prevent 
 | Provider selection | `createChatProvider()` factory with `ChatProviderType` enum |
 | React integration | `GlobalChatProvider` context component |
 | Environment config | `VITE_CHAT_API_URL` pointing to your chat-enabled NestJS app |
-| Source | [`packages/client/`](https://github.com/canisiusa/nestjs-chat/tree/main/packages/client) in the `nestjs-chat` repo (not yet on npm — vendor the folder) |
+| Source | [`packages/client/`](https://github.com/innovartx/nestjs-chat/tree/main/packages/client) in the `nestjs-chat` repo (not yet on npm — vendor the folder) |

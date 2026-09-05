@@ -11,7 +11,7 @@ Prerequisites:
 - Docker (for PostgreSQL + Redis) or a local install of both
 
 ```bash
-git clone https://github.com/canisiusa/nestjs-chat.git
+git clone https://github.com/innovartx/nestjs-chat.git
 cd nestjs-chat
 pnpm install
 

@@ -1,9 +1,9 @@
 # nestjs-chat
 
 [![npm version](https://img.shields.io/npm/v/nestjs-chat.svg)](https://www.npmjs.com/package/nestjs-chat)
-[![CI](https://github.com/canisiusa/nestjs-chat/actions/workflows/ci.yml/badge.svg)](https://github.com/canisiusa/nestjs-chat/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/canisiusa/nestjs-chat/actions/workflows/codeql.yml/badge.svg)](https://github.com/canisiusa/nestjs-chat/actions/workflows/codeql.yml)
-[![Docs](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://canisiusa.github.io/nestjs-chat/)
+[![CI](https://github.com/innovartx/nestjs-chat/actions/workflows/ci.yml/badge.svg)](https://github.com/innovartx/nestjs-chat/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/innovartx/nestjs-chat/actions/workflows/codeql.yml/badge.svg)](https://github.com/innovartx/nestjs-chat/actions/workflows/codeql.yml)
+[![Docs](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://innovartx.github.io/nestjs-chat/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 Real-time chat SDK for NestJS — Prisma 7 + PostgreSQL + Socket.IO + BullMQ.
@@ -113,7 +113,7 @@ Contents:
 | WebSocket Events | 33 |
 | Prisma Models | 11 |
 | Error Codes | 30 |
-| Tech | NestJS 10, Prisma 7, PostgreSQL, Socket.IO, BullMQ, Redis, Winston |
+| Tech | NestJS 12, Prisma 7, PostgreSQL, Socket.IO, BullMQ, Redis, Winston |
 
 ## Scripts
 

@@ -1,10 +1,10 @@
 # nestjs-chat
 
 [![npm version](https://img.shields.io/npm/v/nestjs-chat.svg)](https://www.npmjs.com/package/nestjs-chat)
-[![CI](https://github.com/canisiusa/nestjs-chat/actions/workflows/ci.yml/badge.svg)](https://github.com/canisiusa/nestjs-chat/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/canisiusa/nestjs-chat/actions/workflows/codeql.yml/badge.svg)](https://github.com/canisiusa/nestjs-chat/actions/workflows/codeql.yml)
+[![CI](https://github.com/innovartx/nestjs-chat/actions/workflows/ci.yml/badge.svg)](https://github.com/innovartx/nestjs-chat/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/innovartx/nestjs-chat/actions/workflows/codeql.yml/badge.svg)](https://github.com/innovartx/nestjs-chat/actions/workflows/codeql.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Docs](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://canisiusa.github.io/nestjs-chat/)
+[![Docs](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://innovartx.github.io/nestjs-chat/)
 
 Production-ready real-time chat SDK for NestJS — drop-in `ChatModule.forRoot()` with Prisma, PostgreSQL, Socket.IO, BullMQ, and Redis.
 
@@ -72,8 +72,8 @@ All interfaces are exported from the package root.
 
 ## Requirements
 
-- Node 18+
-- NestJS 10
+- Node 20+
+- NestJS 12
 - PostgreSQL 14+
 - Redis 6+
 
