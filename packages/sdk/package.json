@@ -6,13 +6,13 @@
   "types": "dist/index.d.ts",
   "license": "MIT",
   "author": "canisius ADOGNON",
-  "homepage": "https://canisiusa.github.io/nestjs-chat/",
+  "homepage": "https://innovartx.github.io/nestjs-chat/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/canisiusa/nestjs-chat.git"
+    "url": "git+https://github.com/innovartx/nestjs-chat.git"
   },
   "bugs": {
-    "url": "https://github.com/canisiusa/nestjs-chat/issues"
+    "url": "https://github.com/innovartx/nestjs-chat/issues"
   },
   "keywords": [
     "nestjs",
