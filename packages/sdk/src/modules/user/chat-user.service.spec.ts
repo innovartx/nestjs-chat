@@ -38,7 +38,7 @@ describe('ChatUserService', () => {
   describe('getUser', () => {
     it('returns the user with online status when available', async () => {
       userResolver.getUser.mockResolvedValue({ id: 'u1', nickname: 'Alice' });
-      (userResolver.isOnline as jest.Mock).mockResolvedValue(true);
+      (userResolver.isOnline as Mock).mockResolvedValue(true);
 
       const result = await service.getUser('u1', 't1');
 

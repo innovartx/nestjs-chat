@@ -1,3 +1,5 @@
+import { vi } from 'vitest';
+import type { Mock, Mocked } from 'vitest';
 /* istanbul ignore file */
 /// <reference types="jest" />
 import type { Logger } from 'winston';
@@ -6,19 +8,19 @@ import type { IChatEventHandler } from '../../core/interfaces/chat-event-handler
 import type { IChatStorageProvider } from '../../core/interfaces/chat-storage-provider.interface';
 
 type ModelMock = {
-  findUnique: jest.Mock;
-  findFirst: jest.Mock;
-  findMany: jest.Mock;
-  create: jest.Mock;
-  createMany: jest.Mock;
-  update: jest.Mock;
-  updateMany: jest.Mock;
-  upsert: jest.Mock;
-  delete: jest.Mock;
-  deleteMany: jest.Mock;
-  count: jest.Mock;
-  aggregate: jest.Mock;
-  groupBy: jest.Mock;
+  findUnique: Mock;
+  findFirst: Mock;
+  findMany: Mock;
+  create: Mock;
+  createMany: Mock;
+  update: Mock;
+  updateMany: Mock;
+  upsert: Mock;
+  delete: Mock;
+  deleteMany: Mock;
+  count: Mock;
+  aggregate: Mock;
+  groupBy: Mock;
 };
 
 const CHAT_MODELS = [
@@ -40,34 +42,34 @@ const CHAT_MODELS = [
 type ChatModelName = (typeof CHAT_MODELS)[number];
 
 export type MockPrisma = Record<ChatModelName, ModelMock> & {
-  $transaction: jest.Mock;
-  $connect: jest.Mock;
-  $disconnect: jest.Mock;
+  $transaction: Mock;
+  $connect: Mock;
+  $disconnect: Mock;
 };
 
 function modelMock(): ModelMock {
   return {
-    findUnique: jest.fn(),
-    findFirst: jest.fn(),
-    findMany: jest.fn(),
-    create: jest.fn(),
-    createMany: jest.fn(),
-    update: jest.fn(),
-    updateMany: jest.fn(),
-    upsert: jest.fn(),
-    delete: jest.fn(),
-    deleteMany: jest.fn(),
-    count: jest.fn(),
-    aggregate: jest.fn(),
-    groupBy: jest.fn(),
+    findUnique: vi.fn(),
+    findFirst: vi.fn(),
+    findMany: vi.fn(),
+    create: vi.fn(),
+    createMany: vi.fn(),
+    update: vi.fn(),
+    updateMany: vi.fn(),
+    upsert: vi.fn(),
+    delete: vi.fn(),
+    deleteMany: vi.fn(),
+    count: vi.fn(),
+    aggregate: vi.fn(),
+    groupBy: vi.fn(),
   };
 }
 
 export function createMockPrisma(): MockPrisma {
   const base = {
-    $connect: jest.fn(),
-    $disconnect: jest.fn(),
-    $transaction: jest.fn((arg) => (typeof arg === 'function' ? arg(base) : Promise.all(arg))),
+    $connect: vi.fn(),
+    $disconnect: vi.fn(),
+    $transaction: vi.fn((arg) => (typeof arg === 'function' ? arg(base) : Promise.all(arg))),
   } as unknown as MockPrisma;
 
   for (const name of CHAT_MODELS) {
@@ -77,53 +79,53 @@ export function createMockPrisma(): MockPrisma {
   return base;
 }
 
-export function createMockLogger(): jest.Mocked<Logger> {
+export function createMockLogger(): Mocked<Logger> {
   return {
-    error: jest.fn(),
-    warn: jest.fn(),
-    info: jest.fn(),
-    debug: jest.fn(),
-    verbose: jest.fn(),
-    log: jest.fn(),
-    child: jest.fn().mockReturnThis(),
-  } as unknown as jest.Mocked<Logger>;
+    error: vi.fn(),
+    warn: vi.fn(),
+    info: vi.fn(),
+    debug: vi.fn(),
+    verbose: vi.fn(),
+    log: vi.fn(),
+    child: vi.fn().mockReturnThis(),
+  } as unknown as Mocked<Logger>;
 }
 
-export function createMockUserResolver(): jest.Mocked<IChatUserResolver> {
+export function createMockUserResolver(): Mocked<IChatUserResolver> {
   return {
-    getUser: jest.fn(),
-    getUsers: jest.fn(),
-    searchUsers: jest.fn(),
-    isOnline: jest.fn(),
-  } as unknown as jest.Mocked<IChatUserResolver>;
+    getUser: vi.fn(),
+    getUsers: vi.fn(),
+    searchUsers: vi.fn(),
+    isOnline: vi.fn(),
+  } as unknown as Mocked<IChatUserResolver>;
 }
 
-export function createMockEventHandler(): jest.Mocked<IChatEventHandler> {
+export function createMockEventHandler(): Mocked<IChatEventHandler> {
   return {
-    onMessageSent: jest.fn(),
-    onChannelCreated: jest.fn(),
-    onUserMentioned: jest.fn(),
-    onUnreadCountChanged: jest.fn(),
-  } as unknown as jest.Mocked<IChatEventHandler>;
+    onMessageSent: vi.fn(),
+    onChannelCreated: vi.fn(),
+    onUserMentioned: vi.fn(),
+    onUnreadCountChanged: vi.fn(),
+  } as unknown as Mocked<IChatEventHandler>;
 }
 
-export function createMockStorageProvider(): jest.Mocked<IChatStorageProvider> {
+export function createMockStorageProvider(): Mocked<IChatStorageProvider> {
   return {
-    upload: jest.fn(),
-    delete: jest.fn(),
-    getSignedUrl: jest.fn(),
-  } as unknown as jest.Mocked<IChatStorageProvider>;
+    upload: vi.fn(),
+    delete: vi.fn(),
+    getSignedUrl: vi.fn(),
+  } as unknown as Mocked<IChatStorageProvider>;
 }
 
 export function createMockEmitter() {
   return {
-    emitToChannel: jest.fn(),
-    emitToUser: jest.fn(),
-    emitToTenant: jest.fn(),
-    broadcast: jest.fn(),
-    notifyMessageSent: jest.fn(),
-    notifyChannelCreated: jest.fn(),
-    notifyMentioned: jest.fn(),
-    notifyUnreadCount: jest.fn(),
+    emitToChannel: vi.fn(),
+    emitToUser: vi.fn(),
+    emitToTenant: vi.fn(),
+    broadcast: vi.fn(),
+    notifyMessageSent: vi.fn(),
+    notifyChannelCreated: vi.fn(),
+    notifyMentioned: vi.fn(),
+    notifyUnreadCount: vi.fn(),
   };
 }

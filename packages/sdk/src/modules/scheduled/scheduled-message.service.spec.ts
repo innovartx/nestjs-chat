@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { Test } from '@nestjs/testing';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 import { ScheduledMessageService } from './scheduled-message.service';
@@ -10,14 +11,14 @@ import { createMockLogger, createMockPrisma, MockPrisma } from '../../common/tes
 
 function createMockQueue() {
   return {
-    add: jest.fn().mockResolvedValue(undefined),
-    remove: jest.fn().mockResolvedValue(undefined),
+    add: vi.fn().mockResolvedValue(undefined),
+    remove: vi.fn().mockResolvedValue(undefined),
   };
 }
 
 function createMockMessageService() {
   return {
-    sendTextMessage: jest.fn(),
+    sendTextMessage: vi.fn(),
   };
 }
 
