@@ -40,7 +40,13 @@ pnpm add @nestjs/common @nestjs/core class-transformer class-validator reflect-m
 
 ### Apply the chat database schema
 
-The SDK requires a **dedicated PostgreSQL database** for chat data (11 tables, separate from your application database). It ships with a CLI tool to manage migrations:
+The SDK requires a **dedicated PostgreSQL database** for chat data (13 tables, separate from your application database). It ships with a CLI tool to manage migrations.
+
+The CLI drives the Prisma CLI, which is an **optional peer dependency** — it is only needed to run migrations, never at runtime, so it stays out of your production dependency tree:
+
+```bash
+pnpm add -D prisma
+```
 
 ```bash
 # Apply migrations (production — safe, applies only pending migrations)

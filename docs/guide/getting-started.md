@@ -50,7 +50,13 @@ pnpm add @nestjs/common @nestjs/core class-transformer class-validator reflect-m
 
 ## 2. Apply the database schema
 
-The SDK ships with a bundled Prisma 7 and a `chat-migrate` CLI that applies the 11 chat tables to your database **without touching your host app's Prisma version**.
+The SDK ships with its own Prisma 7 schema and a `chat-migrate` CLI that applies the 13 chat tables to your database **without touching your host app's Prisma version**.
+
+Install the Prisma CLI as a dev dependency first — it is an optional peer, needed only for migrations:
+
+```bash
+pnpm add -D prisma
+```
 
 Point it at a dedicated PostgreSQL database:
 

@@ -4,8 +4,8 @@ dist/
 *.js
 *.js.map
 *.d.ts
-!jest.config.js
 !nest-cli.json
+!packages/sdk/bin/*.js
 coverage/
 .nyc_output/
 logs/

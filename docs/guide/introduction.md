@@ -71,7 +71,7 @@ Full shapes and examples: [Configuration](/guide/configuration).
 | Component | Version | Role |
 |-----------|---------|------|
 | NestJS | 10 | Host framework |
-| Prisma | 7 | ORM — 11 models, bundled migrations applied via `chat-migrate` CLI |
+| Prisma | 7 | ORM — 13 models, bundled migrations applied via `chat-migrate` CLI |
 | PostgreSQL | 15+ | Primary datastore for chat data |
 | Socket.IO | 4 | Real-time gateway |
 | Redis adapter | — | Multi-instance fan-out for Socket.IO |

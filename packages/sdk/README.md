@@ -18,9 +18,10 @@ pnpm add nestjs-chat
 pnpm add @nestjs/common @nestjs/core class-transformer class-validator reflect-metadata rxjs
 ```
 
-Run migrations (PostgreSQL):
+Run migrations (PostgreSQL). The Prisma CLI is an optional peer, needed only for this step:
 
 ```bash
+pnpm add -D prisma
 npx chat-migrate
 ```
 
@@ -67,7 +68,7 @@ All interfaces are exported from the package root.
 - **42 WebSocket events** — real-time messages, typing, presence, read receipts
 - **Multi-tenant isolation** — every query scoped by `tenantId`
 - **BullMQ queues** — scheduled messages, fan-out, moderation jobs
-- **Prisma 7 schema** — 11 models, migrations bundled
+- **Prisma 7 schema** — 13 models, migrations bundled
 
 ## Requirements
 
