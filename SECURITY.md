@@ -16,7 +16,7 @@ Once a 1.0 is released, this policy will be updated to cover LTS minors.
 
 Use one of the following channels:
 
-1. **Preferred:** [GitHub Private Vulnerability Reporting](https://github.com/canisiusa/nestjs-chat/security/advisories/new)
+1. **Preferred:** [GitHub Private Vulnerability Reporting](https://github.com/innovartx/nestjs-chat/security/advisories/new)
 2. **Email:** webmaster.roomee@gmail.com
 
 Include:

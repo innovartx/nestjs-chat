@@ -127,7 +127,7 @@ export class MyAuthGuard implements IChatAuthGuard {
 The guard must attach the decoded user to `request.user` (or a similar property) so that the `IChatUserExtractor` can read it in the next step.
 :::
 
-Reference implementation in the repo: [`apps/example/src/providers/example-auth.guard.ts`](https://github.com/canisiusa/nestjs-chat/blob/main/apps/example/src/providers/example-auth.guard.ts).
+Reference implementation in the repo: [`apps/example/src/providers/example-auth.guard.ts`](https://github.com/innovartx/nestjs-chat/blob/main/apps/example/src/providers/example-auth.guard.ts).
 
 ---
 
@@ -178,7 +178,7 @@ export class MyUserExtractor implements IChatUserExtractor {
 The `tenantId` field is critical. It scopes all chat data (channels, messages, members) to a single tenant. Map it from whatever your JWT uses (e.g. `organizationId`, `companyId`, `workspaceId`). If your app is not multi-tenant, use a fixed value (e.g., `'default'`).
 :::
 
-Reference implementation in the repo: [`apps/example/src/providers/example-user-extractor.ts`](https://github.com/canisiusa/nestjs-chat/blob/main/apps/example/src/providers/example-user-extractor.ts).
+Reference implementation in the repo: [`apps/example/src/providers/example-user-extractor.ts`](https://github.com/innovartx/nestjs-chat/blob/main/apps/example/src/providers/example-user-extractor.ts).
 
 ---
 
@@ -270,7 +270,7 @@ export class MyUserResolver implements IChatUserResolver {
 The `isOnline` method is optional (note the `?` in the interface). If not implemented, online status falls back to Socket.IO connection tracking.
 :::
 
-Reference implementation in the repo: [`apps/example/src/providers/example-user-resolver.ts`](https://github.com/canisiusa/nestjs-chat/blob/main/apps/example/src/providers/example-user-resolver.ts).
+Reference implementation in the repo: [`apps/example/src/providers/example-user-resolver.ts`](https://github.com/innovartx/nestjs-chat/blob/main/apps/example/src/providers/example-user-resolver.ts).
 
 ---
 
@@ -524,21 +524,21 @@ The `providers` object is passed at registration time (not inside `useFactory`) 
 
 ## Reference: example app in the repo
 
-The [`apps/example/`](https://github.com/canisiusa/nestjs-chat/tree/main/apps/example) folder in the GitHub repo contains a complete, runnable integration that demonstrates every concept above. It has real JWT auth, a User table, seeded test users, and wires up all three required providers. Good file-by-file starting points:
+The [`apps/example/`](https://github.com/innovartx/nestjs-chat/tree/main/apps/example) folder in the GitHub repo contains a complete, runnable integration that demonstrates every concept above. It has real JWT auth, a User table, seeded test users, and wires up all three required providers. Good file-by-file starting points:
 
 | File | Description |
 |------|-------------|
-| [`src/app.module.ts`](https://github.com/canisiusa/nestjs-chat/blob/main/apps/example/src/app.module.ts) | Imports `ChatModule.forRootAsync()` with real providers |
-| [`src/main.ts`](https://github.com/canisiusa/nestjs-chat/blob/main/apps/example/src/main.ts) | NestJS bootstrap with CORS + Swagger |
-| [`src/auth.controller.ts`](https://github.com/canisiusa/nestjs-chat/blob/main/apps/example/src/auth.controller.ts) | `POST /auth/login` and `/auth/register` with JWT |
-| [`src/providers/example-auth.guard.ts`](https://github.com/canisiusa/nestjs-chat/blob/main/apps/example/src/providers/example-auth.guard.ts) | `IChatAuthGuard` implementation |
-| [`src/providers/example-user-extractor.ts`](https://github.com/canisiusa/nestjs-chat/blob/main/apps/example/src/providers/example-user-extractor.ts) | `IChatUserExtractor` implementation |
-| [`src/providers/example-user-resolver.ts`](https://github.com/canisiusa/nestjs-chat/blob/main/apps/example/src/providers/example-user-resolver.ts) | `IChatUserResolver` implementation |
+| [`src/app.module.ts`](https://github.com/innovartx/nestjs-chat/blob/main/apps/example/src/app.module.ts) | Imports `ChatModule.forRootAsync()` with real providers |
+| [`src/main.ts`](https://github.com/innovartx/nestjs-chat/blob/main/apps/example/src/main.ts) | NestJS bootstrap with CORS + Swagger |
+| [`src/auth.controller.ts`](https://github.com/innovartx/nestjs-chat/blob/main/apps/example/src/auth.controller.ts) | `POST /auth/login` and `/auth/register` with JWT |
+| [`src/providers/example-auth.guard.ts`](https://github.com/innovartx/nestjs-chat/blob/main/apps/example/src/providers/example-auth.guard.ts) | `IChatAuthGuard` implementation |
+| [`src/providers/example-user-extractor.ts`](https://github.com/innovartx/nestjs-chat/blob/main/apps/example/src/providers/example-user-extractor.ts) | `IChatUserExtractor` implementation |
+| [`src/providers/example-user-resolver.ts`](https://github.com/innovartx/nestjs-chat/blob/main/apps/example/src/providers/example-user-resolver.ts) | `IChatUserResolver` implementation |
 
 To run the example locally (clone the repo, not the npm package):
 
 ```bash
-git clone https://github.com/canisiusa/nestjs-chat.git
+git clone https://github.com/innovartx/nestjs-chat.git
 cd nestjs-chat
 pnpm install
 cp apps/example/.env.example apps/example/.env
