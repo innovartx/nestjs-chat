@@ -83,7 +83,7 @@
     "socket.io": "^4.8.0",
     "uuid": "^11.0.0",
     "winston": "^3.19.0",
-    "prisma": "^7.7.0"
+    "prisma": "^7.10.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.4.9",
