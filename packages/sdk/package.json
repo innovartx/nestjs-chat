@@ -1,6 +1,6 @@
 {
   "name": "nestjs-chat",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Production-ready real-time chat SDK for NestJS — ChatModule.forRoot() with Prisma, PostgreSQL, Socket.IO, BullMQ, Redis.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
