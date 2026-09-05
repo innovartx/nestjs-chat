@@ -24,7 +24,7 @@ features:
   - title: Multi-tenant by design
     details: Every query scoped by tenantId. Your IChatUserExtractor decides how tenants map to your app (org, workspace, project — whatever).
   - title: Production-grade data layer
-    details: Prisma 7 + PostgreSQL for persistence, BullMQ + Redis for scheduled messages, Winston for structured logs. 11 models, bundled migrations.
+    details: Prisma 7 + PostgreSQL for persistence, BullMQ + Redis for scheduled messages, Winston for structured logs. 13 models, bundled migrations.
   - title: Self-hosted, no SaaS fees
     details: You only pay for your PostgreSQL and Redis. No per-seat or per-message pricing. MIT licensed.
 ---
