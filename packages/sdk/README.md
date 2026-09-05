@@ -18,9 +18,10 @@ pnpm add nestjs-chat
 pnpm add @nestjs/common @nestjs/core class-transformer class-validator reflect-metadata rxjs
 ```
 
-Run migrations (PostgreSQL):
+Run migrations (PostgreSQL). The Prisma CLI is an optional peer, needed only for this step:
 
 ```bash
+pnpm add -D prisma
 npx chat-migrate
 ```
 

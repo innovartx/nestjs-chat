@@ -23,9 +23,23 @@ const { dirname, join, resolve } = require('node:path');
 /**
  * Resolve the Prisma CLI entrypoint. The package exports no requirable main,
  * so we go through its package.json and the "bin" it declares.
+ *
+ * The CLI is an optional peer dependency: it is only needed to run migrations,
+ * never at runtime, so it is not installed for consumers who don't run them.
  */
+function prismaManifestPath() {
+  try {
+    return require.resolve('prisma/package.json');
+  } catch {
+    fail(
+      'the "prisma" CLI is not installed. It is an optional peer dependency ' +
+        'used only for migrations — install it with:\n\n  npm install --save-dev prisma\n',
+    );
+  }
+}
+
 function resolvePrismaCli() {
-  const manifestPath = require.resolve('prisma/package.json');
+  const manifestPath = prismaManifestPath();
   const manifest = require(manifestPath);
   const relative = typeof manifest.bin === 'string' ? manifest.bin : manifest.bin.prisma;
   return join(dirname(manifestPath), relative);
@@ -43,6 +57,14 @@ const DEFAULT_COMMAND = 'deploy';
 function fail(message) {
   console.error(`chat-migrate: ${message}`);
   process.exit(1);
+}
+
+function resolvePrismaConfig() {
+  try {
+    return require.resolve('prisma/config');
+  } catch {
+    return join(dirname(prismaManifestPath()), 'config.js');
+  }
 }
 
 const [command = DEFAULT_COMMAND, ...rest] = process.argv.slice(2);
@@ -68,6 +90,9 @@ if (!url) {
   fail('CHAT_DATABASE_URL is not set. Point it at the dedicated chat database.');
 }
 
+// Resolve the CLI up front so a missing optional peer fails before we touch disk.
+const prismaCli = resolvePrismaCli();
+
 // Package root, one level up from bin/.
 const packageRoot = resolve(__dirname, '..');
 const configDir = mkdtempSync(join(tmpdir(), 'chat-migrate-'));
@@ -75,7 +100,7 @@ const configPath = join(configDir, 'prisma.config.js');
 
 writeFileSync(
   configPath,
-  `const { defineConfig } = require(${JSON.stringify(require.resolve('prisma/config'))});
+  `const { defineConfig } = require(${JSON.stringify(resolvePrismaConfig())});
 module.exports = defineConfig({
   schema: ${JSON.stringify(join(packageRoot, 'prisma', 'schema.prisma'))},
   migrations: { path: ${JSON.stringify(join(packageRoot, 'prisma', 'migrations'))} },
@@ -87,7 +112,7 @@ module.exports = defineConfig({
 try {
   const result = spawnSync(
     process.execPath,
-    [resolvePrismaCli(), ...prismaArgs, '--config', configPath, ...rest],
+    [prismaCli, ...prismaArgs, '--config', configPath, ...rest],
     {
       stdio: 'inherit',
       env: { ...process.env, CHAT_MIGRATE_DATABASE_URL: url },
