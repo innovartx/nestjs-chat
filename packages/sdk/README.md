@@ -67,7 +67,7 @@ All interfaces are exported from the package root.
 - **42 WebSocket events** — real-time messages, typing, presence, read receipts
 - **Multi-tenant isolation** — every query scoped by `tenantId`
 - **BullMQ queues** — scheduled messages, fan-out, moderation jobs
-- **Prisma 7 schema** — 11 models, migrations bundled
+- **Prisma 7 schema** — 13 models, migrations bundled
 
 ## Requirements
 

@@ -45,7 +45,7 @@ src/
     └── gateway/              # Socket.IO gateway + ChatEventService
 ```
 
-`prisma/schema.prisma` ships alongside (11 models, bundled migrations under `prisma/migrations/`).
+`prisma/schema.prisma` ships alongside (13 models, bundled migrations under `prisma/migrations/`).
 
 `index.ts` is the only thing external code should import from — everything reachable from it is considered part of the public API. Anything under `common/` or deeper paths is internal and subject to change without notice.
 
@@ -221,7 +221,7 @@ Each HTTP request receives a unique `requestId` via `AsyncLocalStorage`. This re
 
 | Database | Tables | Configured via | Managed by |
 |----------|--------|----------------|------------|
-| Chat DB | 11 chat tables | `ChatModuleOptions.database.url` | `nestjs-chat` |
+| Chat DB | 13 chat tables | `ChatModuleOptions.database.url` | `nestjs-chat` |
 | Host DB | Whatever your app needs (users, org, billing, …) | Whatever you already use | Your host app |
 
 The reason the schemas are separate: running two Prisma clients in the same process against the same schema leads to migration conflicts the moment either project evolves. Isolating the chat data also makes it trivially portable — you can point the SDK at a managed Postgres service while your app DB lives elsewhere.
