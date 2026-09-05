@@ -1,16 +1,17 @@
+import { vi } from 'vitest';
 import { handleServiceError } from './service-error-handler';
 import { ChatException } from './chat.exception';
 import { ChatErrorCode } from './chat-error-codes';
 
 const silentLogger = {
-  error: jest.fn(),
-  warn: jest.fn(),
-  info: jest.fn(),
-  debug: jest.fn(),
+  error: vi.fn(),
+  warn: vi.fn(),
+  info: vi.fn(),
+  debug: vi.fn(),
 } as any;
 
 beforeEach(() => {
-  jest.clearAllMocks();
+  vi.clearAllMocks();
 });
 
 describe('handleServiceError', () => {
