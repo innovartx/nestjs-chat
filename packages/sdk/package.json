@@ -96,7 +96,7 @@
     "@types/pg": "^8.20.0",
     "@types/uuid": "^10.0.0",
     "@vitest/coverage-v8": "^5.0.0",
-    "dotenv": "^17.4.0",
+    "dotenv": "^18.0.5",
     "eslint": "^9.18.0",
     "prettier": "^3.4.0",
     "prisma": "^7.10.0",
